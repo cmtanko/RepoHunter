@@ -1,0 +1,167 @@
+<!-- Navbar -->
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
+	        	<span class="sr-only">Toggle navigation</span>
+	        	<span class="icon-bar"></span>
+	        	<span class="icon-bar"></span>
+	        	<span class="icon-bar"></span>
+	    	</button>
+			<div>
+				<div class="logo-container">
+					<div class="row">
+						<div class="brand col-md-2 col-sm-2 col-xs-2">
+							REPO HUNTER
+						</div>
+						<div class="col-md-8 col-sm-10 col-xs-3">
+							<div class="form-group label-floating" style="margin: 0px;">
+								<input type="text" value="" placeholder="Search packages" class="form-control" />
+								<span class="form-control-feedback">
+									<i class="fa fa-search"></i>
+								</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!--<div class="collapse navbar-collapse" id="navigation-index">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="#home" class="active">
+						HOME
+					</a>
+				</li>
+				<li>
+					<a href="#home">
+						CONTACT
+					</a>
+				</li>
+				<li>
+					<a href="#home">
+						ABOUT
+					</a>
+				</li>
+			</ul>
+		</div>-->
+	</div>
+</nav>
+<!-- End Navbar -->
+
+<div class="wrapper">
+	<div class="header header-filter">
+		<div class="container">
+			<div class="row">
+				<form class="margin-top" ng-submit="$ctrl.onSearch($ctrl.searchText)" name="search" novalidate>
+
+					<div class="col-md-8 col-md-offset-2">
+						<div class="brand">
+							<h1>REPO HUNTER</h1>
+							<h3>google for github and bitBucket.</h3>
+							<div class="">
+								<div class="form-group label-floating">
+									<input name="input" ng-model="$ctrl.searchText" type="text" value="" placeholder="Search packages" class="form-control" />
+									<span class="form-control-feedback">
+									<i class="fa fa-search"></i>
+								</span>
+								</div>
+							</div>
+
+							<div ng-show="$ctrl.isSeaching">Seaching...</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="main main-raised1" ng-if="$ctrl.resultRepos.length > 0">
+		<div class="section section-basic">
+			<div class="container">
+
+				<div class="tim-typo">
+					<span class="tim-note">Angular UI Grid</span>
+					<blockquote>
+						<p>
+							A data grid for AngularJS; part of the AngularUI suite Native AngularJS implementation, no jQuery Performs well with large
+							data sets; even 10,000+ rows Plugin architecture allows you to use only the features you need
+						</p>
+						<span>
+								<button class="btn btn-default btn-round btn-sm">Read More...</button>
+	                         </span>
+					</blockquote>
+				</div>
+
+				<hr>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="title">
+							<h3>Search Results</h3>
+							<ul class="pagination pagination-danger pull-right">
+								<li>
+									<a href="javascript:void(0);">
+										< prev</a>
+								</li>
+								<li><a href="javascript:void(0);">1</a></li>
+								<li><a href="javascript:void(0);">2</a></li>
+								<li class="active"><a href="javascript:void(0);">3</a></li>
+								<li><a href="javascript:void(0);">4</a></li>
+								<li><a href="javascript:void(0);">5</a></li>
+								<li><a href="javascript:void(0);">next ></a></li>
+							</ul>
+						</div>
+
+
+						<div class="card card-nav-tabs" ng-repeat="repo in $ctrl.resultRepos">
+							<div class="content">
+								<div class="tab-content text-left">
+									<div class="tab-pane active" id="profile">
+										<h3>
+											<strong>
+											<a href="{{repo.html_url}}" target="_blank"> {{repo.name}} </a> |
+											<i class="fa fa-star"> </i> {{repo.watchers}}
+												</strong>
+										</h3>
+										<p> {{repo.description}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Sart Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					<i class="material-icons">clear</i>
+				</button>
+				<h4 class="modal-title">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+					Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named
+					Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted
+					parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an
+					almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for
+					the far World of Grammar.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default btn-simple">Nice Button</button>
+				<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  End Modal -->
