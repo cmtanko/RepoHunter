@@ -1,6 +1,9 @@
-# test
+# Repo Hunter
 
-This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 4.2.2.
+Google for gitHub and bitBucket version 1.0.0
+
+#Demo
+https://repohunter.herokuapp.com/
 
 ## Getting Started
 
@@ -9,7 +12,6 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 - [Git](https://git-scm.com/)
 - [Node.js and npm](nodejs.org) Node >= 4.x.x, npm >= 2.x.x
 - [Gulp](http://gulpjs.com/) (`npm install --global gulp`)
-- [MongoDB](https://www.mongodb.org/) - Keep a running daemon with `mongod`
 
 ### Developing
 
