@@ -2,7 +2,7 @@
 
 Google for gitHub and bitBucket version 1.0.0
 
-# Demo
+#Demo
 https://repohunter.herokuapp.com/
 
 ## Getting Started
