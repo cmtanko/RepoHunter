@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #f2f2f2;
+}
+
+#searchBar {
+  height: 50px;
+  padding: 20px 0;
+  background: #fff;
+  box-shadow: #ccc 0 0 5px;
+  transition: all 500ms;
+}
+
+.center {
+  margin-top: calc(50vh - 150px);
+  position: relative;
+}
+
+.top-bar {
+  margin-top: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+#results {
+  margin-top: 150px;
+}
+
+.result {
+  background: #fff;
+  margin: 20px 0;
+  box-shadow: #ccc 0 0 5px;
+  padding: 20px;
+  transition: all 500ms;
+}
