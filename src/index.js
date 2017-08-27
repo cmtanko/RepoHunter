@@ -8,5 +8,7 @@ import registerServiceWorker from './registerServiceWorker';
 ReactDOM.render(
   <MuiThemeProvider>
     <App />
-  </MuiThemeProvider>, document.getElementById('root'));
+  </MuiThemeProvider>,
+  document.getElementById('root')
+);
 registerServiceWorker();

@@ -21,14 +21,12 @@ const App = ({ onSearchTermChange, searchTerm, results = [] }) =>
     </div>
     <div id="results">
       <div className="container">
-      {
-        results.map((result, i) =>
+        {results.map((result, i) =>
           <Result result={result} searchTerm={searchTerm} key={i} />
-        )
-      }
+        )}
       </div>
     </div>
-  </div>
+  </div>;
 
 export default compose(
   withState('searchTerm', 'setSearchTerm', ''),
@@ -36,16 +34,12 @@ export default compose(
     onSearchTermChange: ({ setSearchTerm }) => (e, val) => {
       setSearchTerm(val);
       searchTerms$.next(val);
-    }
+    },
   }),
-  mapPropsStream(props$ => 
-    Observable.combineLatest(
-      props$,
-      response$,
-      (props, results) => ({
-        ...props,
-        results
-      })
-    )
+  mapPropsStream(props$ =>
+    Observable.combineLatest(props$, response$, (props, results) => ({
+      ...props,
+      results,
+    }))
   )
 )(App);

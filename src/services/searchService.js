@@ -8,19 +8,21 @@ import '../config/rxjs';
 
 export const searchTerms$ = new Subject();
 
-const debouncedSearchTerms$ = searchTerms$
-  .debounce(() => Observable.timer(500));
+const debouncedSearchTerms$ = searchTerms$.debounce(() =>
+  Observable.timer(500)
+);
 
 const clearResults$ = debouncedSearchTerms$
   .filter(searchTerm => !searchTerm)
-  .map(() => [])
+  .map(() => []);
 
 const hasResponse$ = debouncedSearchTerms$
   .filter(searchTerm => searchTerm.length > 0)
   .mergeMap(searchTerm =>
-    ajax.getJSON(API.searchApi(searchTerm))
-    .map(response => response.data)
-    .catch(err => Observable.of({error: err}))
+    ajax
+      .getJSON(API.searchApi(searchTerm))
+      .map(response => response.data)
+      .catch(err => Observable.of({ error: err }))
   );
 
 export const response$ = Observable.merge(
