@@ -20,13 +20,10 @@ const hasResponse$ = debouncedSearchTerms$
   .mergeMap(searchTerm =>
     ajax.getJSON(API.searchApi(searchTerm))
     .map(response => response.data)
-    .catch(err => {
-      return Observable.of({error: err})
-    })
+    .catch(err => Observable.of({error: err}))
   );
 
 export const response$ = Observable.merge(
   clearResults$,
   hasResponse$
 ).startWith([]);
-
