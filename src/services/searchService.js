@@ -1,10 +1,8 @@
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import { ajax } from 'rxjs/observable/dom/ajax';
 
+import http from '../utils/http';
 import API from '../constants/apiConstants';
-
-import '../config/rxjs';
 
 export const searchTerms$ = new Subject();
 
@@ -19,7 +17,7 @@ const clearResults$ = debouncedSearchTerms$
 const hasResponse$ = debouncedSearchTerms$
   .filter(searchTerm => searchTerm.length > 0)
   .mergeMap(searchTerm =>
-    ajax
+    http
       .getJSON(API.searchApi(searchTerm))
       .map(response => response.data)
       .catch(err => Observable.of({ error: err }))
